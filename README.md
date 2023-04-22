@@ -31,10 +31,10 @@ Nesse exemplo, o G da matriz 1 é a posição do garoto, e pelo método, se o mo
 
 ## Implementação
 
-- No momento em que o programa inicia, ele abre o arquivo "input.data", que contém na primeira linha a quantidade de linhas e colunas de cada matriz, e a quantidade de matrizes, e a partir daí, ele lê cada matriz como char e salva em arquivos separados, assim evitando sobrecarga do uso da memória e tendo controle sobre o que acontece em cada matriz quando ela começa e termina o seu andamento. Esses arquivos separados são de acordo com a quantidade de matrizes, como exemplo: Arquivo com 4 matrizes, vai gerar os arquivos "mat1.data", "mat2.data", "mat3.data" e "mat4.data", que serão modificados ao longo do programa ao longo da jornada do personagem coletando itens, e ao final do jogo cada uma das matrizes nesses arquivos serão incluídas no arquivo "output.data" que mostra o que aconteceu com as matrizes em comparação ao arquivo inicial "input.data", e depois esses arquivos matN.data serão excluídos.
+- No momento em que o programa inicia, ele abre o arquivo "input.data", que contém na primeira linha a quantidade de linhas e colunas de cada matriz, e a quantidade de matrizes, e a partir daí, ele lê cada matriz como char e salva em arquivos separados, assim evitando sobrecarga do uso da memória e tendo controle sobre o que acontece em cada matriz quando ela começa e termina o seu andamento. Esses arquivos separados são de acordo com a quantidade de matrizes, como exemplo: Arquivo com 4 matrizes, vai gerar os arquivos "mat1.data", "mat2.data", "mat3.data" e "mat4.data", que serão modificados ao longo do programa ao longo da jornada do personagem coletando itens, e ao final do jogo cada uma das matrizes nesses arquivos serão incluídas no arquivo "output.data" que mostra o que aconteceu com as matrizes em comparação ao arquivo inicial "input.data", e depois esses arquivos matN.data serão excluídos. O "output.data" será obtido ao executar o código, portanto mesmo que já exista um arquivo com outras matrizes e o usuário altera o input.data, após a execução o "output.data" será sobrescrevido com os parâmetros do "input.data".
 - Quando cada matriz for lida para ser colocada na função de andamento, será criado uma variável do tipo "**int" para armazená-la, e os caracteres * e # que não são inteiros, serão transformados em -1 e -2, apenas quando a função estiver executando, mas serão printados no arquivo como * e #.
-
-
+- Ao final do código são apresentadas as informações de quantas casas foram percorridas, total de itens consumidos, perigos enfrentados, e quantas casas não foram percorridas, sendo que essas três primeiras informações que vêm de atributos estáticos que são modificados ao longo da execução do código, e as casas não percorridas são determinadas em uma função que compara as matrizes em seu estado inicial com as matrizes modificadas ao longo da execução até o fim do jogo, e as casas que permaneceram com a mesma quantidade de itens, não foram percorridas, desconsiderando casas sem item, perigos e paredes.
+- No momento em que o personagem entra em uma matriz, ou sai de uma para entrar em outra, o as coordenadas i e j são redefinidas randomicamente, e no momento da entrada da matriz, ele cai em uma posição que inicialmente não é considerada ação de jogo, mas sim um ponto para uma nova movimentação, podendo ser acessada posteriormente caso não seja uma parede.
 
 ## Arquivos
 
@@ -42,6 +42,7 @@ Nesse exemplo, o G da matriz 1 é a posição do garoto, e pelo método, se o mo
 * ```mat.hpp```: Declaração das funções utilizadas;
 * ```mat.cpp```: Implementação das funções descritas no arquivo hpp;
 * ```input.data```: Arquivo com as matrizes que serão lidas;
+* ```output.data```: Arquivo com as matrizes em seu estado final após as modificações no decorrer do programa;
 * ```Makefile```: Automatiza o processo de compilação;
 
 ## Funções
