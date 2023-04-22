@@ -4,7 +4,7 @@
 
 Neste segundo trabalho, foi feito um programa usando a linguagem C++, que recebe um número N de matrizes MxM em um arquivo "input.data", e esse programa faz a simulação de um jogo onde um garoto tem que andar por um labirinto que possui três tipos de casas (posições da matriz), a casa com itens (números de 0 a 9), a casa com perigo, ("*") e a casa com parede ("#").
 
-O programa irá carregar as matrizes e percorrê-las segundo as regras do jogo, e irá encerrar em duas ocasiões: caso a quantidade de vidas do garoto chegue a 0, ou caso o garoto não consiga mais coletar itens ao passar por todas as matrizes e voltar à primeira.
+O programa irá carregar as matrizes e percorrê-las segundo as regras do jogo, e irá encerrar em três ocasiões: caso a quantidade de vidas do garoto chegue a 0, ou caso o garoto não consiga mais coletar itens ao passar por todas as matrizes e voltar à primeira, ou - no caso mais específico - caso o jogador cair em uma posição na qual ele fique cercado por paredes.
 
 ## Objetivo
 
@@ -28,6 +28,10 @@ Nesse exemplo, o G da matriz 1 é a posição do garoto, e pelo método, se o mo
 - Quando o movimento leva o garoto a uma parede, ele não sai da posição em que está e outro movimento é gerado, portanto, nada acontece.
 - Se a quantidade de vidas chegar a 0, ou ele não consiga mais pegar itens ao atravessar todas as matrizes e voltar para a primeira, o jogo acaba.
 - O garoto sempre pula para a matriz consecutiva, ex: da matriz 2 para a 3, da 5 para 6, mas quando ele chega na última matriz, após andar por ela ele volta para a primeira.
+
+```Caso Específico```
+
+O terceiro caso de parada, quando o jogador acaba ficando cercado por paredes, só é possível quando ele entra em uma matriz e cai em tal posição antes de dar o primeiro movimento ou após movimentar pela primeira vez ao entrar em uma matriz.
 
 ## Implementação
 
