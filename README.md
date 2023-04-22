@@ -2,7 +2,7 @@
 
 # Descrição
 
-Neste segundo trabalho, foi feito um programa usando a linguagem C++, que recebe um número N de matrizes MxM em um arquivo "input.data", e esse programa faz a simulação de um jogo onde um garoto tem que andar por um labirinto que possui três tipos de casas (posições da matriz), a casa com itens (números de 0 a 9), a casa com perigo, ("*") e a casa com parede ("#").
+Neste segundo trabalho, foi feito um programa usando a linguagem C++, que recebe um número N de matrizes MxM (sendo M maior ou igual a 3) em um arquivo "input.data", e esse programa faz a simulação de um jogo onde um garoto tem que andar por um labirinto que possui três tipos de casas (posições da matriz), a casa com itens (números de 0 a 9), a casa com perigo, ("*") e a casa com parede ("#").
 
 O programa irá carregar as matrizes e percorrê-las segundo as regras do jogo, e irá encerrar em três ocasiões: caso a quantidade de vidas do garoto chegue a 0, ou caso o garoto não consiga mais coletar itens ao passar por todas as matrizes e voltar à primeira, ou - no caso mais específico - caso o jogador cair em uma posição na qual ele fique cercado por paredes.
 
