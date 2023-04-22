@@ -58,25 +58,35 @@ O terceiro caso de parada, quando o jogador acaba ficando cercado por paredes, s
 * int Quant() : Abre o arquivo "input.data", lê os 3 primeiros caracteres e retorna o último, esse valor representa a quantidade de matrizes.
 * void OpenMatrix() : Segunda função chamada no main.cpp, o início e o final da execução dessa função estão diretamente relacionadas com o início e fim do jogo, porque ela abre uma matriz de cada vez e manda para a função WalkMatrix() para realizar os movimentos do jogo. Quando uma das três possibilidades de encerramento do jogo é atingida, o laço de repetição para chamar a WalkMatrix() se encerra. Além disso, essa função gera randomicamente as coordenadas im e jm que serão usadas como ponto de start no caminhamento da matriz.
 * int WalkMatrix (int **m, int im, int jm, int rsize, int n) : Essa função recebe como parâmetro a matriz obtida em OpenMatrix(), as coordenadas i e j pro ponto de start para o primeiro movimento, o rsize que é o tamanho da matriz -1, para facilitar na verificação de condições para o movimento, e também o n que é o número da matriz que foi aberta. Aqui a matriz é percorrida seguindo os critérios citados na Descrição do Trabalho, por meio de uma switch que analisa as condições para as 8 possibilidades de movimentação. Essa função retorna o valor n que será enviado ao OpenMatrix() para abrir e armazenar a outra matriz que será voltada para essa função.
-* int NotVisited() : Essa função é responsável por retornar a quantidade de casas que não foram visitadas e modificadas na execução do jogo. Aqui
-* void SumUpTimes() : Segunda função chamada no main.cpp, essa irá mostrar o total de matrizes percorridas durante o programa, as somas de cada um dos caminhos percorridos nelas (salvos num int do tipo vector), e ao final dessa função e do programa, será mostrada a soma total de todos os números que foram obtidos em todas as matrizes percorridas no programa.
+* int NotVisited() : Essa função é responsável por retornar a quantidade de casas que não foram visitadas e modificadas na execução do jogo. Aqui são comparados os aruqivos "input.data" e "output.data", e a quantidade de posições que mantiveram a mesma quantidade de itens (mais que 0) são as casas que não foram exploradas.
+* void Output() : Terceira função chamada no main.cpp, é responsável por salvar todas as matrizes modificadas dos arquivos separados em um arquivo só.
+* void remove() : Remove os arquivos utilizados para armazenar matrizes separadas na realização do jogo, e assim sobra na pasta dataset apenas os arquivos "input.data" e "output.data".
 
 ## Exemplos da execução
 
-![image1](https://user-images.githubusercontent.com/127407951/227640068-807c981f-cea3-42e7-833f-9bb4f24664d7.jpg)
+![fexample](https://user-images.githubusercontent.com/127407951/233801694-207a7f67-a38f-4b84-9414-0ec34f9230be.png)
 
+Print da execução do programa no terminal, onde a cada movimento ou tentativa de movimento, mostra a quantidade de vidas, o número da matriz, o ponto de saída, o número do movimento e quantos itens foram coletados até aquele momento.
 
-Print do arquivo "input.data" mostrando as duas primeiras matrizes e o tamanho delas.
+![final 1](https://user-images.githubusercontent.com/127407951/233801778-1670850c-d702-4104-a0b3-6ccd1cc84e6d.png)
 
-![image2](https://user-images.githubusercontent.com/127407951/227640329-74c8c542-a1cb-4497-8a60-389d2b30dd7e.jpg)
+Print do terminal mostrando a primeira e mais provável possibilidade de final no encerramento do jogo, em que as vidas do personagem se acabam. Nos três finais são mostrados quantas casas foram percorridas, quantos itens foram consumidos, quantas casas ficaram sem ser exploradas e o total de perigos enfrentados. 
 
+![final 2](https://user-images.githubusercontent.com/127407951/233801942-02284479-cfa2-4d7b-8415-9fbe039343af.png)
 
-Print do terminal com a leitura das duas matrizes e o caminho percorrido nelas.
+Print do terminal com a segunda possibilidade de final do jogo. Aqui e no final do caso mais específico, são mostradas o total de vidas que restavam para o personagem.
 
-![image3](https://user-images.githubusercontent.com/127407951/227640517-9cdaff96-429f-4e11-87f3-17936196c383.jpg)
+![final 3](https://user-images.githubusercontent.com/127407951/233801997-eede145d-7c74-4cab-bd0f-9df71ee9402f.png)
 
+Print do terminal com a terceira possibilidade de final, do caso mais específico.
 
-Print do terminal com o final do programa, mostrando as somas dos caminhos percorridos nas matrizes.
+## Conclusão
+
+O objetivo principal da construção desse programa com o jogo, é ver a quantidade máxima de itens que o personagem pode pegar e também o quanto se pode modificar das matrizes iniciais ao decorrer da execução. O programa é funcional e está de acordo com as especificações do trabalho e as regras do jogo. Não é viável fazer o cálculo do custo computacional desse programa, devido à decisão de movimentação do jogo que é feita randomicamente, também pelo tamanho da matriz, que pode ser definido pelo usuário ao inserir o arquivo input.data com as matrizes randômicas.
+
+Uma possibilidade de um caso computacional de baixo custo, seria de quando toda vez que uma matriz aberta para o caminhamento, as coordenadas randomicamente geradas fossem sempre de posições próximas a um dos 4 limites da matriz (primeira e última coluna, primeira e última linha), e sempre alcançar uma posição de item ou perigo que levasse à próxima matriz e assim agisse até um dos critérios de parada serem atingidos, isso tudo em comparação ao caso do personagem ficar dando voltas e voltas dentro dos labirintos, que geraria um custo bem maior.
+
+Usar arquivos separados para armazenar cada matriz e serem abertos um de cada vez na execução do código é uma solução ideal para evitar um overflow, ou estouro de memória, no caso de matrizes grandes ou muitas matrizes sendo armazenadas na memória do programa ao mesmo tempo durante toda a execução do código.
 
 ## Compilação e Execução
 
