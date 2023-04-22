@@ -28,6 +28,7 @@ Nesse exemplo, o G da matriz 1 é a posição do garoto, e pelo método, se o mo
 - Quando o movimento leva o garoto a uma parede, ele não sai da posição em que está e outro movimento é gerado, portanto, nada acontece.
 - Se a quantidade de vidas chegar a 0, ou ele não consiga mais pegar itens ao atravessar todas as matrizes e voltar para a primeira, o jogo acaba.
 - O garoto sempre pula para a matriz consecutiva, ex: da matriz 2 para a 3, da 5 para 6, mas quando ele chega na última matriz, após andar por ela ele volta para a primeira.
+- Quando o garoto alcança uma posição que esteja nos limites da matriz, seja posição de itens ou perigo, ele pula para a próxima matriz.
 
 ```Caso Específico```
 
@@ -51,9 +52,13 @@ O terceiro caso de parada, quando o jogador acaba ficando cercado por paredes, s
 
 ## Funções
 
-* int Tam() : Abre o arquivo e lê os dois primeiros caracteres que determinam o tamanho da matriz, como nessa atividade são usadas apenas matrizes quadradas (com mesma quantidade de linhas e colunas), é retornado apenas um valor.
-* void ReadMatriz : A primeira função chamada no main.cpp, essa função lê uma matriz de cada vez após pegar o valor retornado pela função Tam() e gerar uma matriz de ponteiro com as posições obtidas, essa matriz será mostrada na tela do terminal e será encaminhada a próxima função, que é a responsável por percorrer a matriz. Nessa função também é calculada a soma total dos números que foram obtidos no percurso da matriz após passarem pela função WalkMatriz().
-* void WalkMatriz (int **m,int size) : Essa função recebe como parâmetro a matriz obtida em ReadMatriz() e o tamanho obtido em Tam(). Aqui a matriz é percorrida seguindo os critérios citados na Descrição do Trabalho. Durante o processo dessa função, o número percorrido será igualado a -1, para não correr o risco de ser percorrido novamente, e esse número será salvo em um int do tipo vector, para depois que a função terminar o caminho ser mostrado na função anterior e a sua soma ser mostrada ao usuário.
+* As funções que começam com "see" e a função int sabc() são para retornar valores de atributos estáticos para o arquivo main.cpp.
+* void ReadFile() : A primeira função chamada no main.cpp, é responsável por ler todas as matrizes do arquivo "input.data" e salvá-las separadamente em N arquivos com o nome "matN.data".
+* int Tam() : Abre o arquivo "input.data" e lê os dois primeiros caracteres que determinam o tamanho da matriz, como nessa atividade são usadas apenas matrizes quadradas (com mesma quantidade de linhas e colunas), é retornado apenas um valor.
+* int Quant() : Abre o arquivo "input.data", lê os 3 primeiros caracteres e retorna o último, esse valor representa a quantidade de matrizes.
+* void OpenMatrix() : Segunda função chamada no main.cpp, o início e o final da execução dessa função estão diretamente relacionadas com o início e fim do jogo, porque ela abre uma matriz de cada vez e manda para a função WalkMatrix() para realizar os movimentos do jogo. Quando uma das três possibilidades de encerramento do jogo é atingida, o laço de repetição para chamar a WalkMatrix() se encerra. Além disso, essa função gera randomicamente as coordenadas im e jm que serão usadas como ponto de start no caminhamento da matriz.
+* int WalkMatrix (int **m, int im, int jm, int rsize, int n) : Essa função recebe como parâmetro a matriz obtida em OpenMatrix(), as coordenadas i e j pro ponto de start para o primeiro movimento, o rsize que é o tamanho da matriz -1, para facilitar na verificação de condições para o movimento, e também o n que é o número da matriz que foi aberta. Aqui a matriz é percorrida seguindo os critérios citados na Descrição do Trabalho, por meio de uma switch que analisa as condições para as 8 possibilidades de movimentação. Essa função retorna o valor n que será enviado ao OpenMatrix() para abrir e armazenar a outra matriz que será voltada para essa função.
+* int NotVisited() : Essa função é responsável por retornar a quantidade de casas que não foram visitadas e modificadas na execução do jogo. Aqui
 * void SumUpTimes() : Segunda função chamada no main.cpp, essa irá mostrar o total de matrizes percorridas durante o programa, as somas de cada um dos caminhos percorridos nelas (salvos num int do tipo vector), e ao final dessa função e do programa, será mostrada a soma total de todos os números que foram obtidos em todas as matrizes percorridas no programa.
 
 ## Exemplos da execução
