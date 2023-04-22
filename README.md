@@ -32,7 +32,7 @@ Nesse exemplo, o G da matriz 1 é a posição do garoto, e pelo método, se o mo
 ## Implementação
 
 * No momento em que o programa inicia, ele abre o arquivo "input.data", que contém na primeira linha a quantidade de linhas e colunas de cada matriz, e a quantidade de matrizes, e a partir daí, ele lê cada matriz como char e salva em arquivos separados, assim evitando sobrecarga do uso da memória e tendo controle sobre o que acontece em cada matriz quando ela começa e termina o seu andamento. Esses arquivos separados são de acordo com a quantidade de matrizes, como exemplo: Arquivo com 4 matrizes, vai gerar os arquivos "mat1.data", "mat2.data", "mat3.data" e "mat4.data", que serão modificados ao longo do programa ao longo da jornada do personagem coletando itens, e ao final do jogo cada uma das matrizes nesses arquivos serão incluídas no arquivo "output.data" que mostra o que aconteceu com as matrizes em comparação ao arquivo inicial "input.data", e depois esses arquivos matN.data serão excluídos.
-* Quando cada matriz for lida para ser colocada na função de andamento, será criado uma variável do tipo "**int" para armazená-la, e os caracteres "*" e "#" que não são inteiros, serão transformados em -1 e -2, apenas quando a função estiver executando, mas serão printados no arquivo como "*" e "#".
+* Quando cada matriz for lida para ser colocada na função de andamento, será criado uma variável do tipo "**int" para armazená-la, e os caracteres ("*") e ("#") que não são inteiros, serão transformados em -1 e -2, apenas quando a função estiver executando, mas serão printados no arquivo como ("*") e ("#").
 
 
 
