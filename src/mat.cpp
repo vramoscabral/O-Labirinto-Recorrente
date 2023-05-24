@@ -95,7 +95,7 @@ void Matriz::Readfile()
 void Matriz::remove()
 {
   ifstream frst;
-  int a, n=1, size=Tam(), i;
+  int a, n=1, size=Tam();
 
   frst.open("dataset/input.data");
   frst >> a >> a >> nummat;
@@ -294,7 +294,7 @@ int Matriz::WalkMatrix(int **mtrx, int im, int jm, int rsize, int n)
       case 1:
         if (im>0 && jm<rsize)
         {
-          if (mtrx[im-1][jm+1]>=-1 && jm+1==rsize || mtrx[im-1][jm+1]>=-1 && im-1==0)
+          if ((mtrx[im-1][jm+1]>=-1 && jm+1==rsize) || (mtrx[im-1][jm+1]>=-1 && im-1==0))
           {
             if (mtrx[im-1][jm+1]==-1)
             {
@@ -397,7 +397,7 @@ int Matriz::WalkMatrix(int **mtrx, int im, int jm, int rsize, int n)
       case 3:
         if (im<rsize && jm<rsize)
         {
-          if (mtrx[im+1][jm+1]>=-1 && jm+1==rsize || mtrx[im+1][jm+1]>=-1 && im+1==rsize)
+          if ((mtrx[im+1][jm+1]>=-1 && jm+1==rsize) || (mtrx[im+1][jm+1]>=-1 && im+1==rsize))
           {
             if (mtrx[im+1][jm+1]==-1)
             {
@@ -500,7 +500,7 @@ int Matriz::WalkMatrix(int **mtrx, int im, int jm, int rsize, int n)
       case 5:
         if (im<rsize && jm>0)
         {
-          if (mtrx[im+1][jm-1]>=-1 && im+1==rsize || mtrx[im+1][jm-1]>=-1 && jm-1==0)
+          if ((mtrx[im+1][jm-1]>=-1 && im+1==rsize) || (mtrx[im+1][jm-1]>=-1 && jm-1==0))
           {
             if (mtrx[im+1][jm-1]==-1)
             {
@@ -603,7 +603,7 @@ int Matriz::WalkMatrix(int **mtrx, int im, int jm, int rsize, int n)
       case 7:
         if (im>0 && jm>0)
         {
-          if (mtrx[im-1][jm-1]>=-1 && im-1==0 || mtrx[im-1][jm-1]>=-1 && jm-1==0)
+          if ((mtrx[im-1][jm-1]>=-1 && im-1==0) || (mtrx[im-1][jm-1]>=-1 && jm-1==0))
           {
             if (mtrx[im-1][jm-1]==-1)
             {
